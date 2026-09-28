@@ -2,7 +2,7 @@
 
 A small enterprise-style Windows environment built on VirtualBox to practice systems administration, Active Directory, DNS, Group Policy, and security hardening — with every security control tested and documented.
 
-**Skills demonstrated:** Active Directory Domain Services · DNS · Group Policy · PowerShell · Windows Server 2025 · Windows 11 Enterprise · Windows Firewall · Least privilege / RBAC · UEFI Secure Boot & TPM 2.0 · VirtualBox / VBoxManage · Linux (Ubuntu) host administration
+**Skills demonstrated:** Active Directory Domain Services · DNS · Group Policy · PowerShell · Windows Server 2025 · Windows 11 Enterprise · Windows Firewall · Least privilege / RBAC · UEFI Secure Boot & TPM 2.0 · VirtualBox 7.2 / VBoxManage · Linux (Ubuntu) host administration
 
 ---
 
@@ -167,14 +167,12 @@ All evidence is in [`/screenshots`](./screenshots), numbered in build order:
 |---|---|
 | 01-vbox-modules-loaded | VirtualBox kernel modules loaded after MOK enrollment |
 | 02-labnet-natnetwork | Isolated lab network, DHCP disabled |
-| 03-dc01-vm-config | DC01 VM specs (UEFI, LabNet) |
 | 04-dc01-server-manager | Windows Server 2025 installed |
 | 05-dc01-static-ip-hostname | Static IP and hostname |
 | 06-dc01-promotion-complete | `lab.local` domain, DC, SRV record, DNS client |
 | 07-dns-manager-lab-local | AD-integrated DNS zone and records |
 | 08-aduc-ou-structure | OU structure |
 | 09-users-and-groups | Security group membership |
-| 10-client01-vm-config | CLIENT01 VM specs (UEFI, TPM 2.0, Secure Boot) |
 | 10b-client01-secureboot-tpm | Windows reports UEFI + Secure Boot On |
 | 11-client01-domain-joined | CLIENT01 member of `lab.local` |
 | 12-domain-user-login-whoami | Domain user login authenticated by DC01 |
@@ -182,11 +180,13 @@ All evidence is in [`/screenshots`](./screenshots), numbered in build order:
 | 13b-client01-in-lab-computers-ou | Computer account placed in LAB-Computers |
 | 14-gpmc-gpos-linked | GPO linked to LAB-Computers |
 | 15-password-lockout-policy | Effective password/lockout policy |
+| 15b-client01-gpupdate-success | Group Policy applied successfully on CLIENT01 |
 | 15c-test-weak-password-rejected | Weak password rejected |
 | 16-test-account-lockout | Locked-out message on client |
 | 16b-lockout-event-and-unlock | Event 4740 + admin unlock |
 | 17-test-screen-lock | Automatic screen lock |
 | 18-test-firewall-domain-profile | Firewall enforced, domain profile |
+| 18b-firewall-blocks-inbound | Ping and RDP from DC01 blocked by CLIENT01's firewall |
 | 19-test-least-privilege | Standard user blocked from elevation |
 | 20-gpresult-client | GPOs applied to the client |
 
